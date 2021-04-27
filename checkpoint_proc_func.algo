@@ -1,0 +1,30 @@
+PROCEDURE dot_Product(V1,V2 : ARRAY_OF INTEGER [5]; ps: INTEGER)
+
+BEGIN   
+    i: INTEGER;
+    ps :=0;
+    FOR i FROM 0 TO V1.length-1 STEP 1  DO
+        FOR i FROM 0 TO V2.length-1 STEP 2 DO
+           ps := ps + V1[i] * V2[i]; 
+        END_FOR
+    END_FOR
+END
+
+
+ALGORITHM vectors
+VAR
+    tab : ARRAY_OF INTEGER[100][100];
+    i,j,n:= INTEGER;
+BEGIN
+    n:= n*2;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+     FOR j FROM 0 TO n-1 STEP 2  DO
+           read(tab[i][j]);
+        IF (dot_Product(tab[i], tab[j], ps) =0) THEN
+            write("ces deux vecteurs sont orthogonaux");
+            ELSE
+            write("ces deux vecteurs ne sont pas orthogonaux")
+        END_IF
+     END_FOR
+    END_FOR
+END
